@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const userRoute=require('./routes/users')
 const authRoute=require('./routes/auth')
+const postRoute=require('./routes/posts')
 
 
 dotenv.config(); 
@@ -24,9 +25,10 @@ app.use(morgan('dev'));
 
 app.use('/api/user',userRoute);
 app.use('/api/auth',authRoute);
+app.use('/api/post',postRoute);
 
 
-
+  
 app.get('/',(req,res)=>{
     res.send('welocome to homepage');
 })
@@ -35,3 +37,4 @@ app.get('/',(req,res)=>{
 app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`)
 })
+
